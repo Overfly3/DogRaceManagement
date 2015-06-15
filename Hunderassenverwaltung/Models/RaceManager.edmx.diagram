@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5d5402c215044d53bc05872b7f31d690" Name="Diagram1">
+        <EntityTypeShape EntityType="HunderassenverwaltungModel.AspNetRoles" Width="1.5" PointX="5.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HunderassenverwaltungModel.AspNetUserClaims" Width="1.5" PointX="10.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="HunderassenverwaltungModel.AspNetUserLogins" Width="1.5" PointX="10.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HunderassenverwaltungModel.AspNetUsers" Width="1.5" PointX="8" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HunderassenverwaltungModel.CharacteristicsSet" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HunderassenverwaltungModel.FurrsSet" Width="1.5" PointX="5.625" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HunderassenverwaltungModel.GroupsSet" Width="1.5" PointX="4.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HunderassenverwaltungModel.RacesSet" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HunderassenverwaltungModel.SocialUsagesSet" Width="1.5" PointX="5.625" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HunderassenverwaltungModel.sysdiagrams" Width="1.5" PointX="9.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HunderassenverwaltungModel.WorkUsagesSet" Width="1.5" PointX="0.5" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="HunderassenverwaltungModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="HunderassenverwaltungModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="HunderassenverwaltungModel.FK_RacesFurrs" ManuallyRouted="false" />
+        <AssociationConnector Association="HunderassenverwaltungModel.FK_RacesGroups" ManuallyRouted="false" />
+        <AssociationConnector Association="HunderassenverwaltungModel.RacesCharacteristics" ManuallyRouted="false" />
+        <AssociationConnector Association="HunderassenverwaltungModel.RacesSocialUsages" ManuallyRouted="false" />
+        <AssociationConnector Association="HunderassenverwaltungModel.RacesWorkUsages" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HunderassenverwaltungModel.C__MigrationHistory1" Width="1.5" PointX="9.5" PointY="2" />
+        <AssociationConnector Association="HunderassenverwaltungModel.AspNetUserRoles1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
