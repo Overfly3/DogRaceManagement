@@ -4,375 +4,371 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="HunderassenverwaltungModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="__MigrationHistory">
-          <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
-          </Key>
-          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
-          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
-          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="AspNetRoles">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="AspNetUserClaims">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ClaimType" Type="nvarchar(max)" />
-          <Property Name="ClaimValue" Type="nvarchar(max)" />
-          <Property Name="User_Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-        </EntityType>
-        <EntityType Name="AspNetUserLogins">
-          <Key>
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="LoginProvider" />
-            <PropertyRef Name="ProviderKey" />
-          </Key>
-          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
-        </EntityType>
-        <EntityType Name="AspNetUserRoles">
-          <Key>
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="RoleId" />
-          </Key>
-          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
-        </EntityType>
-        <EntityType Name="AspNetUsers">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="UserName" Type="nvarchar(max)" />
-          <Property Name="PasswordHash" Type="nvarchar(max)" />
-          <Property Name="SecurityStamp" Type="nvarchar(max)" />
-          <Property Name="Name" Type="nvarchar(max)" />
-          <Property Name="Prename" Type="nvarchar(max)" />
-          <Property Name="Address" Type="nvarchar(max)" />
-          <Property Name="Zip" Type="nvarchar(max)" />
-          <Property Name="City" Type="nvarchar(max)" />
-          <Property Name="Email" Type="nvarchar(max)" />
-          <Property Name="Discriminator" Type="nvarchar" MaxLength="128" Nullable="false" />
-        </EntityType>
-        <EntityType Name="CharacteristicsSet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="FurrsSet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="GroupsSet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="RacesCharacteristics">
-          <Key>
-            <PropertyRef Name="Races_Id" />
-            <PropertyRef Name="Characteristics_Id" />
-          </Key>
-          <Property Name="Races_Id" Type="int" Nullable="false" />
-          <Property Name="Characteristics_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="RacesSet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="MinimumAge" Type="smallint" Nullable="false" />
-          <Property Name="MaximumAge" Type="smallint" Nullable="false" />
-          <Property Name="MinimumWeight" Type="smallint" Nullable="false" />
-          <Property Name="MaximumWeight" Type="smallint" Nullable="false" />
-          <Property Name="MinimumWithers" Type="smallint" Nullable="false" />
-          <Property Name="MaximumWithers" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="History" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="GeneralInformation" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="PayAttentionTo" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Picture" Type="varbinary(max)" Nullable="false" />
-          <Property Name="Furrs_Id" Type="int" Nullable="false" />
-          <Property Name="Groups_Id" Type="int" Nullable="false" />
-          <Property Name="Country" Type="varchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="RacesSocialUsages">
-          <Key>
-            <PropertyRef Name="Races_Id" />
-            <PropertyRef Name="SocialUsages_Id" />
-          </Key>
-          <Property Name="Races_Id" Type="int" Nullable="false" />
-          <Property Name="SocialUsages_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="RacesWorkUsages">
-          <Key>
-            <PropertyRef Name="Races_Id" />
-            <PropertyRef Name="WorkUsages_Id" />
-          </Key>
-          <Property Name="Races_Id" Type="int" Nullable="false" />
-          <Property Name="WorkUsages_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="SocialUsagesSet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
-        <EntityType Name="WorkUsagesSet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserClaims">
-              <PropertyRef Name="User_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserLogins">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
-          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetRoles">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserRoles">
-              <PropertyRef Name="RoleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserRoles">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RacesCharacteristics_Characteristics">
-          <End Role="CharacteristicsSet" Type="Self.CharacteristicsSet" Multiplicity="1" />
-          <End Role="RacesCharacteristics" Type="Self.RacesCharacteristics" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CharacteristicsSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="RacesCharacteristics">
-              <PropertyRef Name="Characteristics_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RacesCharacteristics_Races">
-          <End Role="RacesSet" Type="Self.RacesSet" Multiplicity="1" />
-          <End Role="RacesCharacteristics" Type="Self.RacesCharacteristics" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RacesSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="RacesCharacteristics">
-              <PropertyRef Name="Races_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RacesFurrs">
-          <End Role="FurrsSet" Type="Self.FurrsSet" Multiplicity="1" />
-          <End Role="RacesSet" Type="Self.RacesSet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FurrsSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="RacesSet">
-              <PropertyRef Name="Furrs_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RacesGroups">
-          <End Role="GroupsSet" Type="Self.GroupsSet" Multiplicity="1" />
-          <End Role="RacesSet" Type="Self.RacesSet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="GroupsSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="RacesSet">
-              <PropertyRef Name="Groups_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RacesSocialUsages_Races">
-          <End Role="RacesSet" Type="Self.RacesSet" Multiplicity="1" />
-          <End Role="RacesSocialUsages" Type="Self.RacesSocialUsages" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RacesSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="RacesSocialUsages">
-              <PropertyRef Name="Races_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RacesSocialUsages_SocialUsages">
-          <End Role="SocialUsagesSet" Type="Self.SocialUsagesSet" Multiplicity="1" />
-          <End Role="RacesSocialUsages" Type="Self.RacesSocialUsages" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SocialUsagesSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="RacesSocialUsages">
-              <PropertyRef Name="SocialUsages_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RacesWorkUsages_Races">
-          <End Role="RacesSet" Type="Self.RacesSet" Multiplicity="1" />
-          <End Role="RacesWorkUsages" Type="Self.RacesWorkUsages" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RacesSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="RacesWorkUsages">
-              <PropertyRef Name="Races_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RacesWorkUsages_WorkUsages">
-          <End Role="WorkUsagesSet" Type="Self.WorkUsagesSet" Multiplicity="1" />
-          <End Role="RacesWorkUsages" Type="Self.RacesWorkUsages" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="WorkUsagesSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="RacesWorkUsages">
-              <PropertyRef Name="WorkUsages_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="HunderassenverwaltungModelStoreContainer">
-          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CharacteristicsSet" EntityType="Self.CharacteristicsSet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="FurrsSet" EntityType="Self.FurrsSet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="GroupsSet" EntityType="Self.GroupsSet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RacesCharacteristics" EntityType="Self.RacesCharacteristics" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RacesSet" EntityType="Self.RacesSet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RacesSocialUsages" EntityType="Self.RacesSocialUsages" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RacesWorkUsages" EntityType="Self.RacesWorkUsages" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SocialUsagesSet" EntityType="Self.SocialUsagesSet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="WorkUsagesSet" EntityType="Self.WorkUsagesSet" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
-            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RacesCharacteristics_Characteristics" Association="Self.FK_RacesCharacteristics_Characteristics">
-            <End Role="CharacteristicsSet" EntitySet="CharacteristicsSet" />
-            <End Role="RacesCharacteristics" EntitySet="RacesCharacteristics" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RacesCharacteristics_Races" Association="Self.FK_RacesCharacteristics_Races">
-            <End Role="RacesSet" EntitySet="RacesSet" />
-            <End Role="RacesCharacteristics" EntitySet="RacesCharacteristics" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RacesFurrs" Association="Self.FK_RacesFurrs">
-            <End Role="FurrsSet" EntitySet="FurrsSet" />
-            <End Role="RacesSet" EntitySet="RacesSet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RacesGroups" Association="Self.FK_RacesGroups">
-            <End Role="GroupsSet" EntitySet="GroupsSet" />
-            <End Role="RacesSet" EntitySet="RacesSet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RacesSocialUsages_Races" Association="Self.FK_RacesSocialUsages_Races">
-            <End Role="RacesSet" EntitySet="RacesSet" />
-            <End Role="RacesSocialUsages" EntitySet="RacesSocialUsages" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RacesSocialUsages_SocialUsages" Association="Self.FK_RacesSocialUsages_SocialUsages">
-            <End Role="SocialUsagesSet" EntitySet="SocialUsagesSet" />
-            <End Role="RacesSocialUsages" EntitySet="RacesSocialUsages" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RacesWorkUsages_Races" Association="Self.FK_RacesWorkUsages_Races">
-            <End Role="RacesSet" EntitySet="RacesSet" />
-            <End Role="RacesWorkUsages" EntitySet="RacesWorkUsages" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RacesWorkUsages_WorkUsages" Association="Self.FK_RacesWorkUsages_WorkUsages">
-            <End Role="WorkUsagesSet" EntitySet="WorkUsagesSet" />
-            <End Role="RacesWorkUsages" EntitySet="RacesWorkUsages" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
+    <Schema Namespace="HunderassenverwaltungModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="HunderassenverwaltungModelStoreContainer">
+    <EntitySet Name="AspNetRoles" EntityType="HunderassenverwaltungModel.Store.AspNetRoles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserClaims" EntityType="HunderassenverwaltungModel.Store.AspNetUserClaims" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserLogins" EntityType="HunderassenverwaltungModel.Store.AspNetUserLogins" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUsers" EntityType="HunderassenverwaltungModel.Store.AspNetUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CharacteristicsSet" EntityType="HunderassenverwaltungModel.Store.CharacteristicsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FurrsSet" EntityType="HunderassenverwaltungModel.Store.FurrsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GroupsSet" EntityType="HunderassenverwaltungModel.Store.GroupsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RacesSet" EntityType="HunderassenverwaltungModel.Store.RacesSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SocialUsagesSet" EntityType="HunderassenverwaltungModel.Store.SocialUsagesSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="HunderassenverwaltungModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="WorkUsagesSet" EntityType="HunderassenverwaltungModel.Store.WorkUsagesSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="C__MigrationHistory1Set" EntityType="HunderassenverwaltungModel.Store.C__MigrationHistory1Set" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RacesCharacteristics" EntityType="HunderassenverwaltungModel.Store.RacesCharacteristics" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RacesSocialUsages" EntityType="HunderassenverwaltungModel.Store.RacesSocialUsages" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RacesWorkUsages" EntityType="HunderassenverwaltungModel.Store.RacesWorkUsages" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserRoles1" EntityType="HunderassenverwaltungModel.Store.AspNetUserRoles1" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" Association="HunderassenverwaltungModel.Store.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="HunderassenverwaltungModel.Store.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RacesFurrs" Association="HunderassenverwaltungModel.Store.FK_RacesFurrs">
+      <End Role="FurrsSet" EntitySet="FurrsSet" />
+      <End Role="RacesSet" EntitySet="RacesSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RacesGroups" Association="HunderassenverwaltungModel.Store.FK_RacesGroups">
+      <End Role="GroupsSet" EntitySet="GroupsSet" />
+      <End Role="RacesSet" EntitySet="RacesSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RacesCharacteristics_CharacteristicsSet" Association="HunderassenverwaltungModel.Store.FK_RacesCharacteristics_CharacteristicsSet">
+      <End Role="CharacteristicsSet" EntitySet="CharacteristicsSet" />
+      <End Role="RacesCharacteristics" EntitySet="RacesCharacteristics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RacesCharacteristics_RacesSet" Association="HunderassenverwaltungModel.Store.FK_RacesCharacteristics_RacesSet">
+      <End Role="RacesSet" EntitySet="RacesSet" />
+      <End Role="RacesCharacteristics" EntitySet="RacesCharacteristics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RacesSocialUsages_RacesSet" Association="HunderassenverwaltungModel.Store.FK_RacesSocialUsages_RacesSet">
+      <End Role="RacesSet" EntitySet="RacesSet" />
+      <End Role="RacesSocialUsages" EntitySet="RacesSocialUsages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RacesSocialUsages_SocialUsagesSet" Association="HunderassenverwaltungModel.Store.FK_RacesSocialUsages_SocialUsagesSet">
+      <End Role="SocialUsagesSet" EntitySet="SocialUsagesSet" />
+      <End Role="RacesSocialUsages" EntitySet="RacesSocialUsages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RacesWorkUsages_RacesSet" Association="HunderassenverwaltungModel.Store.FK_RacesWorkUsages_RacesSet">
+      <End Role="RacesSet" EntitySet="RacesSet" />
+      <End Role="RacesWorkUsages" EntitySet="RacesWorkUsages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RacesWorkUsages_WorkUsagesSet" Association="HunderassenverwaltungModel.Store.FK_RacesWorkUsages_WorkUsagesSet">
+      <End Role="WorkUsagesSet" EntitySet="WorkUsagesSet" />
+      <End Role="RacesWorkUsages" EntitySet="RacesWorkUsages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspNetUserRoles1_AspNetRoles" Association="HunderassenverwaltungModel.Store.FK_AspNetUserRoles1_AspNetRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles1" EntitySet="AspNetUserRoles1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspNetUserRoles1_AspNetUsers" Association="HunderassenverwaltungModel.Store.FK_AspNetUserRoles1_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles1" EntitySet="AspNetUserRoles1" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="User_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="LoginProvider" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="ProviderKey" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Prename" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Zip" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="City" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Discriminator" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="CharacteristicsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FurrsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GroupsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RacesSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MinimumAge" Type="smallint" Nullable="false" />
+    <Property Name="MaximumAge" Type="smallint" Nullable="false" />
+    <Property Name="MinimumWeight" Type="smallint" Nullable="false" />
+    <Property Name="MaximumWeight" Type="smallint" Nullable="false" />
+    <Property Name="MinimumWithers" Type="smallint" Nullable="false" />
+    <Property Name="MaximumWithers" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="History" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GeneralInformation" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PayAttentionTo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Picture" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Furrs_Id" Type="int" Nullable="false" />
+    <Property Name="Groups_Id" Type="int" Nullable="false" />
+    <Property Name="Country" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SocialUsagesSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" Nullable="true" />
+    <Property Name="definition" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="WorkUsagesSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="C__MigrationHistory1Set">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="ContextKey" Type="nvarchar" Nullable="false" MaxLength="300" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" Nullable="false" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="RacesCharacteristics">
+    <Key>
+      <PropertyRef Name="CharacteristicsSet_Id" />
+      <PropertyRef Name="RacesSet_Id" />
+    </Key>
+    <Property Name="CharacteristicsSet_Id" Type="int" Nullable="false" />
+    <Property Name="RacesSet_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RacesSocialUsages">
+    <Key>
+      <PropertyRef Name="RacesSet_Id" />
+      <PropertyRef Name="SocialUsagesSet_Id" />
+    </Key>
+    <Property Name="RacesSet_Id" Type="int" Nullable="false" />
+    <Property Name="SocialUsagesSet_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RacesWorkUsages">
+    <Key>
+      <PropertyRef Name="RacesSet_Id" />
+      <PropertyRef Name="WorkUsagesSet_Id" />
+    </Key>
+    <Property Name="RacesSet_Id" Type="int" Nullable="false" />
+    <Property Name="WorkUsagesSet_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles1">
+    <Key>
+      <PropertyRef Name="AspNetRoles_Id" />
+      <PropertyRef Name="AspNetUsers_Id" />
+    </Key>
+    <Property Name="AspNetRoles_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="AspNetUsers_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+    <End Role="AspNetUsers" Type="HunderassenverwaltungModel.Store.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="HunderassenverwaltungModel.Store.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="HunderassenverwaltungModel.Store.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="HunderassenverwaltungModel.Store.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RacesFurrs">
+    <End Role="FurrsSet" Type="HunderassenverwaltungModel.Store.FurrsSet" Multiplicity="1" />
+    <End Role="RacesSet" Type="HunderassenverwaltungModel.Store.RacesSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FurrsSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RacesSet">
+        <PropertyRef Name="Furrs_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RacesGroups">
+    <End Role="GroupsSet" Type="HunderassenverwaltungModel.Store.GroupsSet" Multiplicity="1" />
+    <End Role="RacesSet" Type="HunderassenverwaltungModel.Store.RacesSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GroupsSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RacesSet">
+        <PropertyRef Name="Groups_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RacesCharacteristics_CharacteristicsSet">
+    <End Role="CharacteristicsSet" Type="HunderassenverwaltungModel.Store.CharacteristicsSet" Multiplicity="1" />
+    <End Role="RacesCharacteristics" Type="HunderassenverwaltungModel.Store.RacesCharacteristics" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CharacteristicsSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RacesCharacteristics">
+        <PropertyRef Name="CharacteristicsSet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RacesCharacteristics_RacesSet">
+    <End Role="RacesCharacteristics" Type="HunderassenverwaltungModel.Store.RacesCharacteristics" Multiplicity="*" />
+    <End Role="RacesSet" Type="HunderassenverwaltungModel.Store.RacesSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="RacesSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RacesCharacteristics">
+        <PropertyRef Name="RacesSet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RacesSocialUsages_RacesSet">
+    <End Role="RacesSet" Type="HunderassenverwaltungModel.Store.RacesSet" Multiplicity="1" />
+    <End Role="RacesSocialUsages" Type="HunderassenverwaltungModel.Store.RacesSocialUsages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RacesSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RacesSocialUsages">
+        <PropertyRef Name="RacesSet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RacesSocialUsages_SocialUsagesSet">
+    <End Role="RacesSocialUsages" Type="HunderassenverwaltungModel.Store.RacesSocialUsages" Multiplicity="*" />
+    <End Role="SocialUsagesSet" Type="HunderassenverwaltungModel.Store.SocialUsagesSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="SocialUsagesSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RacesSocialUsages">
+        <PropertyRef Name="SocialUsagesSet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RacesWorkUsages_RacesSet">
+    <End Role="RacesSet" Type="HunderassenverwaltungModel.Store.RacesSet" Multiplicity="1" />
+    <End Role="RacesWorkUsages" Type="HunderassenverwaltungModel.Store.RacesWorkUsages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RacesSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RacesWorkUsages">
+        <PropertyRef Name="RacesSet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RacesWorkUsages_WorkUsagesSet">
+    <End Role="RacesWorkUsages" Type="HunderassenverwaltungModel.Store.RacesWorkUsages" Multiplicity="*" />
+    <End Role="WorkUsagesSet" Type="HunderassenverwaltungModel.Store.WorkUsagesSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="WorkUsagesSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RacesWorkUsages">
+        <PropertyRef Name="WorkUsagesSet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetUserRoles1_AspNetRoles">
+    <End Role="AspNetRoles" Type="HunderassenverwaltungModel.Store.AspNetRoles" Multiplicity="1" />
+    <End Role="AspNetUserRoles1" Type="HunderassenverwaltungModel.Store.AspNetUserRoles1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles1">
+        <PropertyRef Name="AspNetRoles_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetUserRoles1_AspNetUsers">
+    <End Role="AspNetUserRoles1" Type="HunderassenverwaltungModel.Store.AspNetUserRoles1" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="HunderassenverwaltungModel.Store.AspNetUsers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles1">
+        <PropertyRef Name="AspNetUsers_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HunderassenverwaltungModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -466,12 +462,12 @@
           <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <Property Name="Furrs_Id" Type="Int32" Nullable="false" />
           <Property Name="Groups_Id" Type="Int32" Nullable="false" />
+          <Property Name="Country" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="FurrsSet" Relationship="Self.FK_RacesFurrs" FromRole="RacesSet" ToRole="FurrsSet" />
           <NavigationProperty Name="GroupsSet" Relationship="Self.FK_RacesGroups" FromRole="RacesSet" ToRole="GroupsSet" />
           <NavigationProperty Name="CharacteristicsSet" Relationship="Self.RacesCharacteristics" FromRole="RacesSet" ToRole="CharacteristicsSet" />
           <NavigationProperty Name="SocialUsagesSet" Relationship="Self.RacesSocialUsages" FromRole="RacesSet" ToRole="SocialUsagesSet" />
           <NavigationProperty Name="WorkUsagesSet" Relationship="Self.RacesWorkUsages" FromRole="RacesSet" ToRole="WorkUsagesSet" />
-          <Property Name="Country" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
         </EntityType>
         <EntityType Name="SocialUsagesSet">
           <Key>
@@ -627,169 +623,168 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HunderassenverwaltungModelStoreContainer" CdmEntityContainer="HunderassenverwaltungEntities">
-          <EntitySetMapping Name="AspNetRoles">
-            <EntityTypeMapping TypeName="HunderassenverwaltungModel.AspNetRoles">
-              <MappingFragment StoreEntitySet="AspNetRoles">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AspNetUserClaims">
-            <EntityTypeMapping TypeName="HunderassenverwaltungModel.AspNetUserClaims">
-              <MappingFragment StoreEntitySet="AspNetUserClaims">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
-                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
-                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AspNetUserLogins">
-            <EntityTypeMapping TypeName="HunderassenverwaltungModel.AspNetUserLogins">
-              <MappingFragment StoreEntitySet="AspNetUserLogins">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
-                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AspNetUsers">
-            <EntityTypeMapping TypeName="HunderassenverwaltungModel.AspNetUsers">
-              <MappingFragment StoreEntitySet="AspNetUsers">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Prename" ColumnName="Prename" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Zip" ColumnName="Zip" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CharacteristicsSet">
-            <EntityTypeMapping TypeName="HunderassenverwaltungModel.CharacteristicsSet">
-              <MappingFragment StoreEntitySet="CharacteristicsSet">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="FurrsSet">
-            <EntityTypeMapping TypeName="HunderassenverwaltungModel.FurrsSet">
-              <MappingFragment StoreEntitySet="FurrsSet">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="GroupsSet">
-            <EntityTypeMapping TypeName="HunderassenverwaltungModel.GroupsSet">
-              <MappingFragment StoreEntitySet="GroupsSet">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RacesSet">
-            <EntityTypeMapping TypeName="HunderassenverwaltungModel.RacesSet">
-              <MappingFragment StoreEntitySet="RacesSet">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="MinimumAge" ColumnName="MinimumAge" />
-                <ScalarProperty Name="MaximumAge" ColumnName="MaximumAge" />
-                <ScalarProperty Name="MinimumWeight" ColumnName="MinimumWeight" />
-                <ScalarProperty Name="MaximumWeight" ColumnName="MaximumWeight" />
-                <ScalarProperty Name="MinimumWithers" ColumnName="MinimumWithers" />
-                <ScalarProperty Name="MaximumWithers" ColumnName="MaximumWithers" />
-                <ScalarProperty Name="History" ColumnName="History" />
-                <ScalarProperty Name="GeneralInformation" ColumnName="GeneralInformation" />
-                <ScalarProperty Name="PayAttentionTo" ColumnName="PayAttentionTo" />
-                <ScalarProperty Name="Picture" ColumnName="Picture" />
-                <ScalarProperty Name="Furrs_Id" ColumnName="Furrs_Id" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="Groups_Id" ColumnName="Groups_Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SocialUsagesSet">
-            <EntityTypeMapping TypeName="HunderassenverwaltungModel.SocialUsagesSet">
-              <MappingFragment StoreEntitySet="SocialUsagesSet">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="HunderassenverwaltungModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="WorkUsagesSet">
-            <EntityTypeMapping TypeName="HunderassenverwaltungModel.WorkUsagesSet">
-              <MappingFragment StoreEntitySet="WorkUsagesSet">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="RacesCharacteristics" TypeName="HunderassenverwaltungModel.RacesCharacteristics" StoreEntitySet="RacesCharacteristics">
-            <EndProperty Name="CharacteristicsSet">
-              <ScalarProperty Name="Id" ColumnName="Characteristics_Id" />
-            </EndProperty>
-            <EndProperty Name="RacesSet">
-              <ScalarProperty Name="Id" ColumnName="Races_Id" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="RacesSocialUsages" TypeName="HunderassenverwaltungModel.RacesSocialUsages" StoreEntitySet="RacesSocialUsages">
-            <EndProperty Name="RacesSet">
-              <ScalarProperty Name="Id" ColumnName="Races_Id" />
-            </EndProperty>
-            <EndProperty Name="SocialUsagesSet">
-              <ScalarProperty Name="Id" ColumnName="SocialUsages_Id" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="RacesWorkUsages" TypeName="HunderassenverwaltungModel.RacesWorkUsages" StoreEntitySet="RacesWorkUsages">
-            <EndProperty Name="RacesSet">
-              <ScalarProperty Name="Id" ColumnName="Races_Id" />
-            </EndProperty>
-            <EndProperty Name="WorkUsagesSet">
-              <ScalarProperty Name="Id" ColumnName="WorkUsages_Id" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <EntitySetMapping Name="C__MigrationHistory1Set">
-            <EntityTypeMapping TypeName="HunderassenverwaltungModel.C__MigrationHistory1">
-              <MappingFragment StoreEntitySet="__MigrationHistory">
-                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
-                <ScalarProperty Name="Model" ColumnName="Model" />
-                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
-                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="AspNetUserRoles1" TypeName="HunderassenverwaltungModel.AspNetUserRoles1" StoreEntitySet="AspNetUserRoles">
-            <EndProperty Name="AspNetUsers">
-              <ScalarProperty Name="Id" ColumnName="UserId" />
-            </EndProperty>
-            <EndProperty Name="AspNetRoles">
-              <ScalarProperty Name="Id" ColumnName="RoleId" />
-            </EndProperty>
-          </AssociationSetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HunderassenverwaltungModelStoreContainer" CdmEntityContainer="HunderassenverwaltungEntities">
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="IsTypeOf(HunderassenverwaltungModel.AspNetRoles)">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="IsTypeOf(HunderassenverwaltungModel.AspNetUserClaims)">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="IsTypeOf(HunderassenverwaltungModel.AspNetUserLogins)">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="IsTypeOf(HunderassenverwaltungModel.AspNetUsers)">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Prename" ColumnName="Prename" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CharacteristicsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HunderassenverwaltungModel.CharacteristicsSet)">
+        <MappingFragment StoreEntitySet="CharacteristicsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FurrsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HunderassenverwaltungModel.FurrsSet)">
+        <MappingFragment StoreEntitySet="FurrsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HunderassenverwaltungModel.GroupsSet)">
+        <MappingFragment StoreEntitySet="GroupsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RacesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HunderassenverwaltungModel.RacesSet)">
+        <MappingFragment StoreEntitySet="RacesSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MinimumAge" ColumnName="MinimumAge" />
+          <ScalarProperty Name="MaximumAge" ColumnName="MaximumAge" />
+          <ScalarProperty Name="MinimumWeight" ColumnName="MinimumWeight" />
+          <ScalarProperty Name="MaximumWeight" ColumnName="MaximumWeight" />
+          <ScalarProperty Name="MinimumWithers" ColumnName="MinimumWithers" />
+          <ScalarProperty Name="MaximumWithers" ColumnName="MaximumWithers" />
+          <ScalarProperty Name="History" ColumnName="History" />
+          <ScalarProperty Name="GeneralInformation" ColumnName="GeneralInformation" />
+          <ScalarProperty Name="PayAttentionTo" ColumnName="PayAttentionTo" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="Furrs_Id" ColumnName="Furrs_Id" />
+          <ScalarProperty Name="Groups_Id" ColumnName="Groups_Id" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SocialUsagesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HunderassenverwaltungModel.SocialUsagesSet)">
+        <MappingFragment StoreEntitySet="SocialUsagesSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="IsTypeOf(HunderassenverwaltungModel.sysdiagrams)">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkUsagesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HunderassenverwaltungModel.WorkUsagesSet)">
+        <MappingFragment StoreEntitySet="WorkUsagesSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C__MigrationHistory1Set">
+      <EntityTypeMapping TypeName="IsTypeOf(HunderassenverwaltungModel.C__MigrationHistory1)">
+        <MappingFragment StoreEntitySet="C__MigrationHistory1Set">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="RacesCharacteristics" TypeName="HunderassenverwaltungModel.RacesCharacteristics" StoreEntitySet="RacesCharacteristics">
+      <EndProperty Name="CharacteristicsSet">
+        <ScalarProperty Name="Id" ColumnName="CharacteristicsSet_Id" />
+      </EndProperty>
+      <EndProperty Name="RacesSet">
+        <ScalarProperty Name="Id" ColumnName="RacesSet_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RacesSocialUsages" TypeName="HunderassenverwaltungModel.RacesSocialUsages" StoreEntitySet="RacesSocialUsages">
+      <EndProperty Name="RacesSet">
+        <ScalarProperty Name="Id" ColumnName="RacesSet_Id" />
+      </EndProperty>
+      <EndProperty Name="SocialUsagesSet">
+        <ScalarProperty Name="Id" ColumnName="SocialUsagesSet_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RacesWorkUsages" TypeName="HunderassenverwaltungModel.RacesWorkUsages" StoreEntitySet="RacesWorkUsages">
+      <EndProperty Name="RacesSet">
+        <ScalarProperty Name="Id" ColumnName="RacesSet_Id" />
+      </EndProperty>
+      <EndProperty Name="WorkUsagesSet">
+        <ScalarProperty Name="Id" ColumnName="WorkUsagesSet_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles1" TypeName="HunderassenverwaltungModel.AspNetUserRoles1" StoreEntitySet="AspNetUserRoles1">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="AspNetRoles_Id" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="AspNetUsers_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -803,7 +798,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

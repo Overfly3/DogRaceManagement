@@ -287,8 +287,8 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 }(window.jQuery);
 
 /* ========================================================================
- * Bootstrap: carousel.js v3.0.0
- * http://twbs.github.com/bootstrap/javascript.html#carousel
+ * Bootstrap: Carousel.js v3.0.0
+ * http://twbs.github.com/bootstrap/javascript.html#Carousel
  * ========================================================================
  * Copyright 2012 Twitter, Inc.
  *
@@ -308,12 +308,12 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
 +function ($) { "use strict";
 
-  // CAROUSEL CLASS DEFINITION
+  // CarOUSEL CLASS DEFINITION
   // =========================
 
   var Carousel = function (element, options) {
     this.$element    = $(element)
-    this.$indicators = this.$element.find('.carousel-indicators')
+    this.$indicators = this.$element.find('.Carousel-indicators')
     this.options     = options
     this.paused      =
     this.sliding     =
@@ -403,7 +403,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
     isCycling && this.pause()
 
-    var e = $.Event('slide.bs.carousel', { relatedTarget: $next[0], direction: direction })
+    var e = $.Event('slide.bs.Carousel', { relatedTarget: $next[0], direction: direction })
 
     if ($next.hasClass('active')) return
 
@@ -445,60 +445,60 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
   }
 
 
-  // CAROUSEL PLUGIN DEFINITION
+  // CarOUSEL PLUGIN DEFINITION
   // ==========================
 
-  var old = $.fn.carousel
+  var old = $.fn.Carousel
 
-  $.fn.carousel = function (option) {
+  $.fn.Carousel = function (option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.carousel')
+      var data    = $this.data('bs.Carousel')
       var options = $.extend({}, Carousel.DEFAULTS, $this.data(), typeof option == 'object' && option)
       var action  = typeof option == 'string' ? option : options.slide
 
-      if (!data) $this.data('bs.carousel', (data = new Carousel(this, options)))
+      if (!data) $this.data('bs.Carousel', (data = new Carousel(this, options)))
       if (typeof option == 'number') data.to(option)
       else if (action) data[action]()
       else if (options.interval) data.pause().cycle()
     })
   }
 
-  $.fn.carousel.Constructor = Carousel
+  $.fn.Carousel.Constructor = Carousel
 
 
-  // CAROUSEL NO CONFLICT
+  // CarOUSEL NO CONFLICT
   // ====================
 
-  $.fn.carousel.noConflict = function () {
-    $.fn.carousel = old
+  $.fn.Carousel.noConflict = function () {
+    $.fn.Carousel = old
     return this
   }
 
 
-  // CAROUSEL DATA-API
+  // CarOUSEL DATA-API
   // =================
 
-  $(document).on('click.bs.carousel.data-api', '[data-slide], [data-slide-to]', function (e) {
+  $(document).on('click.bs.Carousel.data-api', '[data-slide], [data-slide-to]', function (e) {
     var $this   = $(this), href
     var $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
     var options = $.extend({}, $target.data(), $this.data())
     var slideIndex = $this.attr('data-slide-to')
     if (slideIndex) options.interval = false
 
-    $target.carousel(options)
+    $target.Carousel(options)
 
     if (slideIndex = $this.attr('data-slide-to')) {
-      $target.data('bs.carousel').to(slideIndex)
+      $target.data('bs.Carousel').to(slideIndex)
     }
 
     e.preventDefault()
   })
 
   $(window).on('load', function () {
-    $('[data-ride="carousel"]').each(function () {
-      var $carousel = $(this)
-      $carousel.carousel($carousel.data())
+    $('[data-ride="Carousel"]').each(function () {
+      var $Carousel = $(this)
+      $Carousel.Carousel($Carousel.data())
     })
   })
 

@@ -166,6 +166,7 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="images\AddRecord.png" />
+    <Content Include="Models\RaceManager.edmx.sql" />
     <Content Include="Property.aspx" />
     <Content Include="Usages.aspx" />
     <Content Include="Content\bootstrap.css" />

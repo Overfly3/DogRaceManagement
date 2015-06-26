@@ -10,23 +10,28 @@ namespace Hunderassenverwaltung.Models
     // You can add User data for the user by adding more properties to your User class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-        public string Name{
+        public string Name
+        {
             get;
             set;
         }
-        public string Prename{
+        public string Prename
+        {
             get;
             set;
         }
-        public string Address{
+        public string Address
+        {
             get;
             set;
         }
-        public string Zip{
+        public string Zip
+        {
             get;
             set;
         }
-        public string City{
+        public string City
+        {
             get;
             set;
         }
