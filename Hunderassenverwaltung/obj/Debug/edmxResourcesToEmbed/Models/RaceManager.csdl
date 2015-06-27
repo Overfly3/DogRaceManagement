@@ -1,60 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="HunderassenverwaltungModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="AspNetRoles">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="AspNetUsers" Relationship="HunderassenverwaltungModel.AspNetUserRoles1" FromRole="AspNetRoles" ToRole="AspNetUsers" />
-  </EntityType>
-  <EntityType Name="AspNetUserClaims">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="User_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
-  </EntityType>
-  <EntityType Name="AspNetUserLogins">
-    <Key>
-      <PropertyRef Name="UserId" />
-      <PropertyRef Name="LoginProvider" />
-      <PropertyRef Name="ProviderKey" />
-    </Key>
-    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
-  </EntityType>
-  <EntityType Name="AspNetUsers">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Prename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Zip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Discriminator" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
-    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
-    <NavigationProperty Name="AspNetRoles" Relationship="HunderassenverwaltungModel.AspNetUserRoles1" FromRole="AspNetUsers" ToRole="AspNetRoles" />
-  </EntityType>
   <EntityType Name="CharacteristicsSet">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="RacesSet" Relationship="Self.RacesCharacteristics" FromRole="CharacteristicsSet" ToRole="RacesSet" />
+    <NavigationProperty Name="RacesSet" Relationship="HunderassenverwaltungModel.CharacteristicsSetRacesSet" FromRole="CharacteristicsSet" ToRole="RacesSet" />
   </EntityType>
   <EntityType Name="FurrsSet">
     <Key>
@@ -83,7 +35,7 @@
     <Property Name="MinimumWeight" Type="Int16" Nullable="false" />
     <Property Name="MaximumWeight" Type="Int16" Nullable="false" />
     <Property Name="MinimumWithers" Type="Int16" Nullable="false" />
-    <Property Name="MaximumWithers" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaximumWithers" Type="Int16" Nullable="false" />
     <Property Name="History" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="GeneralInformation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="PayAttentionTo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
@@ -93,9 +45,12 @@
     <Property Name="Country" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="FurrsSet" Relationship="Self.FK_RacesFurrs" FromRole="RacesSet" ToRole="FurrsSet" />
     <NavigationProperty Name="GroupsSet" Relationship="Self.FK_RacesGroups" FromRole="RacesSet" ToRole="GroupsSet" />
-    <NavigationProperty Name="CharacteristicsSet" Relationship="Self.RacesCharacteristics" FromRole="RacesSet" ToRole="CharacteristicsSet" />
-    <NavigationProperty Name="SocialUsagesSet" Relationship="Self.RacesSocialUsages" FromRole="RacesSet" ToRole="SocialUsagesSet" />
-    <NavigationProperty Name="WorkUsagesSet" Relationship="Self.RacesWorkUsages" FromRole="RacesSet" ToRole="WorkUsagesSet" />
+    <NavigationProperty Name="CharacteristicsSet" Relationship="HunderassenverwaltungModel.CharacteristicsSetRacesSet" FromRole="RacesSet" ToRole="CharacteristicsSet" />
+    <Property Name="CharacteristicsSetId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SocialUsagesSet" Relationship="HunderassenverwaltungModel.SocialUsagesSetRacesSet" FromRole="RacesSet" ToRole="SocialUsagesSet" />
+    <Property Name="SocialUsagesSetId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="WorkUsagesSet" Relationship="HunderassenverwaltungModel.WorkUsagesSetRacesSet" FromRole="RacesSet" ToRole="WorkUsagesSet" />
+    <Property Name="WorkUsagesSetId" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="SocialUsagesSet">
     <Key>
@@ -103,17 +58,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="RacesSet" Relationship="Self.RacesSocialUsages" FromRole="SocialUsagesSet" ToRole="RacesSet" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="RacesSet" Relationship="HunderassenverwaltungModel.SocialUsagesSetRacesSet" FromRole="SocialUsagesSet" ToRole="RacesSet" />
   </EntityType>
   <EntityType Name="WorkUsagesSet">
     <Key>
@@ -121,36 +66,8 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="RacesSet" Relationship="Self.RacesWorkUsages" FromRole="WorkUsagesSet" ToRole="RacesSet" />
+    <NavigationProperty Name="RacesSet" Relationship="HunderassenverwaltungModel.WorkUsagesSetRacesSet" FromRole="WorkUsagesSet" ToRole="RacesSet" />
   </EntityType>
-  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
-    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUsers">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserClaims">
-        <PropertyRef Name="User_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUsers">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserLogins">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_RacesFurrs">
     <End Role="FurrsSet" Type="Self.FurrsSet" Multiplicity="1" />
     <End Role="RacesSet" Type="Self.RacesSet" Multiplicity="*" />
@@ -175,38 +92,13 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="RacesCharacteristics">
-    <End Role="CharacteristicsSet" Type="Self.CharacteristicsSet" Multiplicity="*" />
-    <End Role="RacesSet" Type="Self.RacesSet" Multiplicity="*" />
-  </Association>
-  <Association Name="RacesSocialUsages">
-    <End Role="RacesSet" Type="Self.RacesSet" Multiplicity="*" />
-    <End Role="SocialUsagesSet" Type="Self.SocialUsagesSet" Multiplicity="*" />
-  </Association>
-  <Association Name="RacesWorkUsages">
-    <End Role="RacesSet" Type="Self.RacesSet" Multiplicity="*" />
-    <End Role="WorkUsagesSet" Type="Self.WorkUsagesSet" Multiplicity="*" />
-  </Association>
   <EntityContainer Name="HunderassenverwaltungEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
-    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
-    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
-    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
     <EntitySet Name="CharacteristicsSet" EntityType="Self.CharacteristicsSet" />
     <EntitySet Name="FurrsSet" EntityType="Self.FurrsSet" />
     <EntitySet Name="GroupsSet" EntityType="Self.GroupsSet" />
     <EntitySet Name="RacesSet" EntityType="Self.RacesSet" />
     <EntitySet Name="SocialUsagesSet" EntityType="Self.SocialUsagesSet" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="WorkUsagesSet" EntityType="Self.WorkUsagesSet" />
-    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
-    </AssociationSet>
     <AssociationSet Name="FK_RacesFurrs" Association="Self.FK_RacesFurrs">
       <End Role="FurrsSet" EntitySet="FurrsSet" />
       <End Role="RacesSet" EntitySet="RacesSet" />
@@ -215,25 +107,73 @@
       <End Role="GroupsSet" EntitySet="GroupsSet" />
       <End Role="RacesSet" EntitySet="RacesSet" />
     </AssociationSet>
-    <AssociationSet Name="RacesCharacteristics" Association="Self.RacesCharacteristics">
+    <AssociationSet Name="CharacteristicsSetRacesSet" Association="HunderassenverwaltungModel.CharacteristicsSetRacesSet">
       <End Role="CharacteristicsSet" EntitySet="CharacteristicsSet" />
       <End Role="RacesSet" EntitySet="RacesSet" />
     </AssociationSet>
-    <AssociationSet Name="RacesSocialUsages" Association="Self.RacesSocialUsages">
-      <End Role="RacesSet" EntitySet="RacesSet" />
+    <AssociationSet Name="SocialUsagesSetRacesSet" Association="HunderassenverwaltungModel.SocialUsagesSetRacesSet">
       <End Role="SocialUsagesSet" EntitySet="SocialUsagesSet" />
-    </AssociationSet>
-    <AssociationSet Name="RacesWorkUsages" Association="Self.RacesWorkUsages">
       <End Role="RacesSet" EntitySet="RacesSet" />
-      <End Role="WorkUsagesSet" EntitySet="WorkUsagesSet" />
     </AssociationSet>
-    <EntitySet Name="C__MigrationHistory1Set" EntityType="HunderassenverwaltungModel.C__MigrationHistory1" />
-    <AssociationSet Name="AspNetUserRoles1" Association="HunderassenverwaltungModel.AspNetUserRoles1">
+    <AssociationSet Name="WorkUsagesSetRacesSet" Association="HunderassenverwaltungModel.WorkUsagesSetRacesSet">
+      <End Role="WorkUsagesSet" EntitySet="WorkUsagesSet" />
+      <End Role="RacesSet" EntitySet="RacesSet" />
+    </AssociationSet>
+    <EntitySet Name="C__MigrationHistory" EntityType="HunderassenverwaltungModel.C__MigrationHistory" />
+    <EntitySet Name="AspNetRoles" EntityType="HunderassenverwaltungModel.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="HunderassenverwaltungModel.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="HunderassenverwaltungModel.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="HunderassenverwaltungModel.AspNetUsers" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" Association="HunderassenverwaltungModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="HunderassenverwaltungModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="HunderassenverwaltungModel.AspNetUserRoles">
       <End Role="AspNetRoles" EntitySet="AspNetRoles" />
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="C__MigrationHistory1">
+  <Association Name="CharacteristicsSetRacesSet">
+    <End Type="HunderassenverwaltungModel.CharacteristicsSet" Role="CharacteristicsSet" Multiplicity="1" />
+    <End Type="HunderassenverwaltungModel.RacesSet" Role="RacesSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CharacteristicsSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RacesSet">
+        <PropertyRef Name="CharacteristicsSetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SocialUsagesSetRacesSet">
+    <End Type="HunderassenverwaltungModel.SocialUsagesSet" Role="SocialUsagesSet" Multiplicity="1" />
+    <End Type="HunderassenverwaltungModel.RacesSet" Role="RacesSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SocialUsagesSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RacesSet">
+        <PropertyRef Name="SocialUsagesSetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WorkUsagesSetRacesSet">
+    <End Type="HunderassenverwaltungModel.WorkUsagesSet" Role="WorkUsagesSet" Multiplicity="1" />
+    <End Type="HunderassenverwaltungModel.RacesSet" Role="RacesSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkUsagesSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RacesSet">
+        <PropertyRef Name="WorkUsagesSetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="C__MigrationHistory">
     <Key>
       <PropertyRef Name="MigrationId" />
       <PropertyRef Name="ContextKey" />
@@ -243,7 +183,83 @@
     <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
     <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
   </EntityType>
-  <Association Name="AspNetUserRoles1">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="HunderassenverwaltungModel.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="User_Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="HunderassenverwaltungModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+    </Key>
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="HunderassenverwaltungModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Zip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Discriminator" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="HunderassenverwaltungModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="HunderassenverwaltungModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="HunderassenverwaltungModel.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+    <End Type="HunderassenverwaltungModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="HunderassenverwaltungModel.AspNetUserClaims" Role="AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="HunderassenverwaltungModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="HunderassenverwaltungModel.AspNetUserLogins" Role="AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
     <End Type="HunderassenverwaltungModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
     <End Type="HunderassenverwaltungModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
   </Association>

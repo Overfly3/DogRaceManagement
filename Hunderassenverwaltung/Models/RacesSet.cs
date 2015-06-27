@@ -14,13 +14,6 @@ namespace Hunderassenverwaltung.Models
     
     public partial class RacesSet
     {
-        public RacesSet()
-        {
-            this.CharacteristicsSet = new HashSet<CharacteristicsSet>();
-            this.SocialUsagesSet = new HashSet<SocialUsagesSet>();
-            this.WorkUsagesSet = new HashSet<WorkUsagesSet>();
-        }
-    
         public int Id { get; set; }
         public string Name { get; set; }
         public short MinimumAge { get; set; }
@@ -28,7 +21,7 @@ namespace Hunderassenverwaltung.Models
         public short MinimumWeight { get; set; }
         public short MaximumWeight { get; set; }
         public short MinimumWithers { get; set; }
-        public string MaximumWithers { get; set; }
+        public short MaximumWithers { get; set; }
         public string History { get; set; }
         public string GeneralInformation { get; set; }
         public string PayAttentionTo { get; set; }
@@ -36,11 +29,14 @@ namespace Hunderassenverwaltung.Models
         public int Furrs_Id { get; set; }
         public int Groups_Id { get; set; }
         public string Country { get; set; }
+        public int CharacteristicsSetId { get; set; }
+        public int SocialUsagesSetId { get; set; }
+        public int WorkUsagesSetId { get; set; }
     
         public virtual FurrsSet FurrsSet { get; set; }
         public virtual GroupsSet GroupsSet { get; set; }
-        public virtual ICollection<CharacteristicsSet> CharacteristicsSet { get; set; }
-        public virtual ICollection<SocialUsagesSet> SocialUsagesSet { get; set; }
-        public virtual ICollection<WorkUsagesSet> WorkUsagesSet { get; set; }
+        public virtual CharacteristicsSet CharacteristicsSet { get; set; }
+        public virtual SocialUsagesSet SocialUsagesSet { get; set; }
+        public virtual WorkUsagesSet WorkUsagesSet { get; set; }
     }
 }

@@ -282,6 +282,21 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Models\AspNetRoles.cs">
+      <DependentUpon>RaceManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaims.cs">
+      <DependentUpon>RaceManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogins.cs">
+      <DependentUpon>RaceManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUsers.cs">
+      <DependentUpon>RaceManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>RaceManager.tt</DependentUpon>
+    </Compile>
     <Compile Include="Property.aspx.cs">
       <DependentUpon>Property.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -307,22 +322,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Managers\CountryManager.cs" />
-    <Compile Include="Models\AspNetRoles.cs">
-      <DependentUpon>RaceManager.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserClaims.cs">
-      <DependentUpon>RaceManager.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserLogins.cs">
-      <DependentUpon>RaceManager.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUsers.cs">
-      <DependentUpon>RaceManager.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\CharacteristicsSet.cs">
-      <DependentUpon>RaceManager.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\C__MigrationHistory1.cs">
       <DependentUpon>RaceManager.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\FurrsSet.cs">
@@ -351,9 +351,6 @@
       <DependentUpon>RaceManager.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SocialUsagesSet.cs">
-      <DependentUpon>RaceManager.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>RaceManager.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\WorkUsagesSet.cs">

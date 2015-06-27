@@ -25,17 +25,16 @@ namespace Hunderassenverwaltung.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
-        public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
-        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
-        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<CharacteristicsSet> CharacteristicsSet { get; set; }
         public virtual DbSet<FurrsSet> FurrsSet { get; set; }
         public virtual DbSet<GroupsSet> GroupsSet { get; set; }
         public virtual DbSet<RacesSet> RacesSet { get; set; }
         public virtual DbSet<SocialUsagesSet> SocialUsagesSet { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<WorkUsagesSet> WorkUsagesSet { get; set; }
-        public virtual DbSet<C__MigrationHistory1> C__MigrationHistory1Set { get; set; }
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
+        public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
     }
 }
