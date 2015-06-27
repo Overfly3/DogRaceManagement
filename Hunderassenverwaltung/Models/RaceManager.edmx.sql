@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/27/2015 23:48:05
+-- Date Created: 06/28/2015 00:14:21
 -- Generated from EDMX file: C:\Users\Alex\Documents\GitHub\DogRaceManagement\Hunderassenverwaltung\Models\RaceManager.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,20 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_CharacteristicsSetRacesSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RacesSet] DROP CONSTRAINT [FK_CharacteristicsSetRacesSet];
+GO
 IF OBJECT_ID(N'[dbo].[FK_RacesFurrs]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[RacesSet] DROP CONSTRAINT [FK_RacesFurrs];
 GO
 IF OBJECT_ID(N'[dbo].[FK_RacesGroups]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[RacesSet] DROP CONSTRAINT [FK_RacesGroups];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SocialUsagesSetRacesSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RacesSet] DROP CONSTRAINT [FK_SocialUsagesSetRacesSet];
+GO
+IF OBJECT_ID(N'[dbo].[FK_WorkUsagesSetRacesSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RacesSet] DROP CONSTRAINT [FK_WorkUsagesSetRacesSet];
 GO
 
 -- --------------------------------------------------

@@ -8,12 +8,13 @@
         <div>
             <asp:ImageButton ID="uiImageButtonForExcel" runat="server" ImageUrl="images/Excel_ExcelML.png" OnClick="uiImageButtonForExcel_Click" AlternateText="Excel" />
         </div>
-        <telerik:RadGrid ID="uiRadGridForUser" Skin="MetroTouch" AllowSorting="True" AllowPaging="True" PageSize="20" runat="server" AllowFilteringByColumn="True" GroupPanelPosition="Top" CellSpacing="-1" GridLines="Both" DataSourceID="uiDataSourceForUsers" AllowAutomaticDeletes="True" AllowAutomaticInserts="True" AllowAutomaticUpdates="True" AllowCustomPaging="True" ShowFooter="True">
+        <telerik:RadGrid ID="uiRadGridForUser" Skin="MetroTouch" AllowSorting="True" AllowPaging="True" OnItemCreated="RadGrid1_ItemCreated" PageSize="20" runat="server" AllowFilteringByColumn="True" GroupPanelPosition="Top" CellSpacing="-1" GridLines="Both" DataSourceID="uiDataSourceForUsers" AllowAutomaticDeletes="True" AllowAutomaticInserts="True" AllowAutomaticUpdates="True" AllowCustomPaging="True" ShowFooter="True">
             <ClientSettings AllowColumnsReorder="True" ReorderColumnsOnClient="True">
             </ClientSettings>
             <MasterTableView InsertItemDisplay="Top" CommandItemDisplay="Top" DataKeyNames="Id" AllowCustomPaging="False" DataSourceID="uiDataSourceForUsers" ShowFooter="False" AutoGenerateColumns="False">
                 <CommandItemTemplate>
-                    <asp:LinkButton ID="uiButtonForAddNewRecord" runat="server" CommandName="InitInsert" Visible='<%# !uiRadGridForUser.MasterTableView.IsItemInserted %>'><img style="border:0px;vertical-align:middle;" alt="" src="Images/AddRecord.png"/>Add new record</asp:LinkButton>&nbsp;&nbsp;
+                    
+                    <asp:ImageButton ID="uiButtonForAddNewRecords" ImageUrl="Images/AddRecord.png" runat="server" CommandName="InitInsert" Visible='<%# !uiRadGridForUser.MasterTableView.IsItemInserted && User.IsInRole("Admin") %>'></asp:ImageButton>&nbsp;&nbsp;
                 </CommandItemTemplate>
                 <Columns>
                     <telerik:GridBoundColumn DataField="Id" ReadOnly="True" Visible="false" HeaderText="Id" SortExpression="Id" UniqueName="Id" FilterControlAltText="Filter Id column"></telerik:GridBoundColumn>
