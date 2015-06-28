@@ -6,7 +6,7 @@
     <% if (User.Identity.IsAuthenticated)
        { %>
     <h1>Dog races</h1>
-    <telerik:RadGrid OnDeleteCommand="uiRadGridForDogRaces_DeleteCommand" OnUpdateCommand="uiRadGridForDogRaces_UpdateCommand" OnInsertCommand="uiRadGridForDogRaces_InsertCommand" ID="uiRadGridForDogRaces" runat="server" AllowSorting="True" Skin="MetroTouch" EnableUpdate="True" AllowAutomaticDeletes="False" AllowAutomaticInserts="False" AllowAutomaticUpdates="False" CellSpacing="-1" GridLines="Both" GroupPanelPosition="Top" DataSourceID="uiDataSourceForDogRaces">
+    <telerik:RadGrid AllowFilteringByColumn="true" OnDeleteCommand="uiRadGridForDogRaces_DeleteCommand" OnUpdateCommand="uiRadGridForDogRaces_UpdateCommand" OnInsertCommand="uiRadGridForDogRaces_InsertCommand" ID="uiRadGridForDogRaces" runat="server" AllowSorting="True" Skin="MetroTouch" EnableUpdate="True" AllowAutomaticDeletes="False" AllowAutomaticInserts="False" AllowAutomaticUpdates="False" CellSpacing="-1" GridLines="Both" GroupPanelPosition="Top" DataSourceID="uiDataSourceForDogRaces">
         <ExportSettings>
             <Pdf PageWidth=""></Pdf>
         </ExportSettings>
