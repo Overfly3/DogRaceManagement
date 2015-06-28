@@ -282,6 +282,8 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Entities\Race.cs" />
+    <Compile Include="Managers\RaceManager.cs" />
     <Compile Include="Models\AspNetRoles.cs">
       <DependentUpon>RaceManager.tt</DependentUpon>
     </Compile>

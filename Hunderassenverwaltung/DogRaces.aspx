@@ -6,41 +6,56 @@
     <% if (User.Identity.IsAuthenticated)
        { %>
     <h1>Dog races</h1>
-    <telerik:RadGrid ID="uiRadGridForDogRaces" runat="server" AllowSorting="True" Skin="MetroTouch" EnableUpdate="True" AllowAutomaticDeletes="True" AllowAutomaticInserts="True" AllowAutomaticUpdates="True" CellSpacing="-1" GridLines="Both" GroupPanelPosition="Top" DataSourceID="uiDataSourceForDogRaces">
+    <telerik:RadGrid OnDeleteCommand="uiRadGridForDogRaces_DeleteCommand" OnUpdateCommand="uiRadGridForDogRaces_UpdateCommand" OnInsertCommand="uiRadGridForDogRaces_InsertCommand" ID="uiRadGridForDogRaces" runat="server" AllowSorting="True" Skin="MetroTouch" EnableUpdate="True" AllowAutomaticDeletes="False" AllowAutomaticInserts="False" AllowAutomaticUpdates="False" CellSpacing="-1" GridLines="Both" GroupPanelPosition="Top" DataSourceID="uiDataSourceForDogRaces">
         <ExportSettings>
             <Pdf PageWidth=""></Pdf>
         </ExportSettings>
 
-        <MasterTableView CommandItemDisplay="Top" AutoGenerateColumns="False" DataSourceID="uiDataSourceForDogRaces">
+        <MasterTableView DataKeyNames="Id" CommandItemDisplay="Top" AutoGenerateColumns="False" DataSourceID="uiDataSourceForDogRaces">
             <Columns>
-                <telerik:GridBoundColumn DataField="name" HeaderText="Name" SortExpression="name" UniqueName="name" FilterControlAltText="Filter Name column"></telerik:GridBoundColumn>
-                <telerik:GridBoundColumn Visible="false" DataField="minimumage" HeaderText="Minimum Age" SortExpression="minimumage" UniqueName="minimumage" FilterControlAltText="Filter Minimum Age column"></telerik:GridBoundColumn>
-                <telerik:GridBoundColumn Visible="false" DataField="maximumage" HeaderText="Maximum Age" SortExpression="maximumage" UniqueName="maximumage" FilterControlAltText="Filter Maximum Age column"></telerik:GridBoundColumn>
-                <telerik:GridBoundColumn Visible="false" DataField="minimumweight" HeaderText="Minimum Weight" SortExpression="minimumweight" UniqueName="minimumweight" FilterControlAltText="Filter Minimum Weight column"></telerik:GridBoundColumn>
-                <telerik:GridBoundColumn Visible="false" DataField="maximumweight" HeaderText="Maximum Weight" SortExpression="maximumweight" UniqueName="maximumweight" FilterControlAltText="Filter Maximum Weight column"></telerik:GridBoundColumn>
-                <telerik:GridBoundColumn Visible="false" DataField="minimumwithers" HeaderText="Minimum Withers" SortExpression="minimumwithers" UniqueName="minimumwithers" FilterControlAltText="Filter Minimum Withers column"></telerik:GridBoundColumn>
-                <telerik:GridBoundColumn Visible="false" DataField="maximumwithers" HeaderText="Maximum Withers" SortExpression="maximumwithers" UniqueName="maximumwithers" FilterControlAltText="Filter Maximum Withers column"></telerik:GridBoundColumn>
-                <telerik:GridBoundColumn Visible="false" DataField="history" HeaderText="History" SortExpression="history" UniqueName="history" FilterControlAltText="Filter History column"></telerik:GridBoundColumn>
-                <telerik:GridBoundColumn Visible="false" DataField="generalinformation" HeaderText="General Information" SortExpression="generalinformation" UniqueName="generalinformation" FilterControlAltText="Filter General Information column"></telerik:GridBoundColumn>
-                <telerik:GridBoundColumn Visible="false" DataField="payattentionto" HeaderText="Pay Attention To" SortExpression="payattentionto" UniqueName="payattentionto" FilterControlAltText="Filter Pay Attention To column"></telerik:GridBoundColumn>
-                <telerik:GridBoundColumn Visible="false" DataField="picture" HeaderText="Picture" SortExpression="picture" UniqueName="picture" FilterControlAltText="Filter Picture column"></telerik:GridBoundColumn>
-                <telerik:GridBoundColumn DataField="Country" HeaderText="Country" SortExpression="Country" UniqueName="Country" FilterControlAltText="Filter Country column"></telerik:GridBoundColumn>
-                <telerik:GridBoundColumn DataField="Furr" HeaderText="Furr" SortExpression="Furr" UniqueName="Furr" FilterControlAltText="Filter Furr column"></telerik:GridBoundColumn>
-                <telerik:GridBoundColumn DataField="RaceGroup" HeaderText="Race Group" SortExpression="RaceGroup" UniqueName="RaceGroup" FilterControlAltText="Filter Race Group column"></telerik:GridBoundColumn>
+                <telerik:GridBoundColumn DataField="Id" ReadOnly="True" Visible="false" HeaderText="Id" SortExpression="Id" UniqueName="Id" FilterControlAltText="Filter Id column"></telerik:GridBoundColumn>
+                <telerik:GridEditCommandColumn ButtonType="ImageButton" UniqueName="EditCommandColumn">
+                </telerik:GridEditCommandColumn>
+                <telerik:GridButtonColumn Text="Delete" UniqueName="DeleteButtonColumn" CommandName="Delete" ButtonType="ImageButton" />
+                <telerik:GridBoundColumn ColumnValidationSettings-RequiredFieldValidator-ForeColor="Red" ColumnValidationSettings-RequiredFieldValidator-ErrorMessage="This fieldis required!" ColumnValidationSettings-EnableRequiredFieldValidation="true" Visible="true" DataField="name" HeaderText="Name" SortExpression="name" UniqueName="name" FilterControlAltText="Filter Name column"></telerik:GridBoundColumn>
+                <telerik:GridNumericColumn ColumnValidationSettings-RequiredFieldValidator-ForeColor="Red" ColumnValidationSettings-RequiredFieldValidator-ErrorMessage="This fieldis required!" ColumnValidationSettings-EnableRequiredFieldValidation="true" Visible="false" DataField="minimumage" HeaderText="Minimum Age" SortExpression="minimumage" UniqueName="minimumage" FilterControlAltText="Filter Minimum Age column"></telerik:GridNumericColumn>
+                <telerik:GridNumericColumn ColumnValidationSettings-RequiredFieldValidator-ForeColor="Red" ColumnValidationSettings-RequiredFieldValidator-ErrorMessage="This fieldis required!" ColumnValidationSettings-EnableRequiredFieldValidation="true" Visible="false" DataField="maximumage" HeaderText="Maximum Age" SortExpression="maximumage" UniqueName="maximumage" FilterControlAltText="Filter Maximum Age column"></telerik:GridNumericColumn>
+                <telerik:GridNumericColumn ColumnValidationSettings-RequiredFieldValidator-ForeColor="Red" ColumnValidationSettings-RequiredFieldValidator-ErrorMessage="This fieldis required!" ColumnValidationSettings-EnableRequiredFieldValidation="true" Visible="false" DataField="minimumweight" HeaderText="Minimum Weight" SortExpression="minimumweight" UniqueName="minimumweight" FilterControlAltText="Filter Minimum Weight column"></telerik:GridNumericColumn>
+                <telerik:GridNumericColumn ColumnValidationSettings-RequiredFieldValidator-ForeColor="Red" ColumnValidationSettings-RequiredFieldValidator-ErrorMessage="This fieldis required!" ColumnValidationSettings-EnableRequiredFieldValidation="true" Visible="false" DataField="maximumweight" HeaderText="Maximum Weight" SortExpression="maximumweight" UniqueName="maximumweight" FilterControlAltText="Filter Maximum Weight column"></telerik:GridNumericColumn>
+                <telerik:GridNumericColumn ColumnValidationSettings-RequiredFieldValidator-ForeColor="Red" ColumnValidationSettings-RequiredFieldValidator-ErrorMessage="This fieldis required!" ColumnValidationSettings-EnableRequiredFieldValidation="true" Visible="false" DataField="minimumwithers" HeaderText="Minimum Withers" SortExpression="minimumwithers" UniqueName="minimumwithers" FilterControlAltText="Filter Minimum Withers column"></telerik:GridNumericColumn>
+                <telerik:GridNumericColumn ColumnValidationSettings-RequiredFieldValidator-ForeColor="Red" ColumnValidationSettings-RequiredFieldValidator-ErrorMessage="This fieldis required!" ColumnValidationSettings-EnableRequiredFieldValidation="true" Visible="false" DataField="maximumwithers" HeaderText="Maximum Withers" SortExpression="maximumwithers" UniqueName="maximumwithers" FilterControlAltText="Filter Maximum Withers column"></telerik:GridNumericColumn>
+                <telerik:GridBoundColumn ColumnValidationSettings-RequiredFieldValidator-ForeColor="Red" ColumnValidationSettings-RequiredFieldValidator-ErrorMessage="This fieldis required!" ColumnValidationSettings-EnableRequiredFieldValidation="true" Visible="false" DataField="history" HeaderText="History" SortExpression="history" UniqueName="history" FilterControlAltText="Filter History column"></telerik:GridBoundColumn>
+                <telerik:GridBoundColumn ColumnValidationSettings-RequiredFieldValidator-ForeColor="Red" ColumnValidationSettings-RequiredFieldValidator-ErrorMessage="This fieldis required!" ColumnValidationSettings-EnableRequiredFieldValidation="true" Visible="false" DataField="generalinformation" HeaderText="General Information" SortExpression="generalinformation" UniqueName="generalinformation" FilterControlAltText="Filter General Information column"></telerik:GridBoundColumn>
+                <telerik:GridBoundColumn ColumnValidationSettings-RequiredFieldValidator-ForeColor="Red" ColumnValidationSettings-RequiredFieldValidator-ErrorMessage="This fieldis required!" ColumnValidationSettings-EnableRequiredFieldValidation="true" Visible="false" DataField="payattentionto" HeaderText="Pay Attention To" SortExpression="payattentionto" UniqueName="payattentionto" FilterControlAltText="Filter Pay Attention To column"></telerik:GridBoundColumn>
+                <telerik:GridTemplateColumn Visible="false" DataField="pictureData" HeaderText="Picture" SortExpression="pictureData" UniqueName="pictureData" FilterControlAltText="Filter Picture column">
+                    <ItemTemplate>
+                        <telerik:RadBinaryImage runat="server" ID="uiRadBinaryImageForColumn" DataValue='<%#Eval("pictureData") %>'
+                            AutoAdjustImageControlSize="false" Height="80px" Width="80px"></telerik:RadBinaryImage>
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <telerik:RadAsyncUpload runat="server" ID="AsyncUpload1" AllowedFileExtensions="jpg,jpeg,png,gif" MaxFileSize="6048576">
+                        </telerik:RadAsyncUpload>
+                    </EditItemTemplate>
+                </telerik:GridTemplateColumn>
+                <telerik:GridDropDownColumn DataSourceID="uiDataSourceForCountries" Visible="true" DataField="Country" HeaderText="Country" SortExpression="Country" UniqueName="Country" FilterControlAltText="Filter Country column"></telerik:GridDropDownColumn>
+                <telerik:GridDropDownColumn ListTextField="Name" ListValueField="Id" DataSourceID="uiDataSourceForFurrs" Visible="true" DataField="FurrId" HeaderText="Furr" SortExpression="Furr" UniqueName="Furr" FilterControlAltText="Filter Furr column"></telerik:GridDropDownColumn>
+                <telerik:GridDropDownColumn ListTextField="Name" ListValueField="Id" DataSourceID="uiDataSourceForGroups" Visible="true" DataField="GroupId" HeaderText="Race Group" SortExpression="RaceGroup" UniqueName="RaceGroup" FilterControlAltText="Filter Race Group column"></telerik:GridDropDownColumn>
+                <telerik:GridDropDownColumn ListTextField="Name" ListValueField="Id" DataSourceID="uiDataSourceForCharacteristics" Visible="false" DataField="CharacteristicId" HeaderText="Characteristic" SortExpression="Characteristic" UniqueName="Characteristic" FilterControlAltText="Filter Characteristic column"></telerik:GridDropDownColumn>
+                <telerik:GridDropDownColumn ListTextField="Name" ListValueField="Id" DataSourceID="uiDataSourceForSocialUsages" Visible="true" DataField="SocialUsageId" HeaderText="Social Usage" SortExpression="SocialUsage" UniqueName="SocialUsage" FilterControlAltText="Filter Social Usage column"></telerik:GridDropDownColumn>
+                <telerik:GridDropDownColumn ListTextField="Name" ListValueField="Id" DataSourceID="uiDataSourceForWorkUsages" Visible="true" DataField="WorkUsageId" HeaderText="Work Usage" SortExpression="WorkUsage" UniqueName="WorkUsage" FilterControlAltText="Filter Work Usage column"></telerik:GridDropDownColumn>
             </Columns>
             <NestedViewTemplate>
-                <div class="DogBackground" style='<%# NormalizeValue(String.Format("background-image: url(Images/LargeLogos/{0}.png);", Eval("DogRaceName"))) %>'>
+                <div class="DogBackground">
                     <div style="float: left;">
-                        <telerik:RadBinaryImage ID="DogImage" runat="server" AlternateText="Dog Image" DataValue="<%# Eval("picture") == DBNull.Value? new System.Byte[0]: Eval("picture") %>" />
+                        <img id="imageForServer" runat="server" src='<%# "data:image/png;base64," + Convert.ToBase64String((byte[])Eval("pictureData")) %>' />
                     </div>
                     <div style="float: right; width: 50%">
 
                         <div class="DogPicture">
-                            <h3><%# Eval("picture") %></h3>
                         </div>
                         <hr class="lineSeparator" />
 
-                        <table width="100%" class="DogInfo">
+                        <table style="width: 100%" class="DogInfo">
                             <tr>
                                 <td>
                                     <strong>Race:</strong>
@@ -101,6 +116,12 @@
                                     <%# Eval("payattentionto") %>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    <strong>Characteristic:</strong>
+                                    <%# Eval("Characteristic") %>
+                                </td>
+                            </tr>
                         </table>
                     </div>
                     <div style="clear: both">
@@ -108,7 +129,7 @@
                 </div>
             </NestedViewTemplate>
             <CommandItemTemplate>
-                <asp:LinkButton ID="uiButtonForAddNewRecord" runat="server" CommandName="InitInsert" Visible='<%# !uiRadGridForDogRaces.MasterTableView.IsItemInserted %>'><img style="border:0px;vertical-align:middle;" alt="" src="Images/AddRecord.png"/>Add new record</asp:LinkButton>&nbsp;&nbsp;
+                <asp:ImageButton ID="uiButtonForAddNewRecords" ImageUrl="Images/AddRecord.png" runat="server" CommandName="InitInsert" Visible='<%# !uiRadGridForDogRaces.MasterTableView.IsItemInserted && User.IsInRole("Admin") %>'></asp:ImageButton>&nbsp;&nbsp;
             </CommandItemTemplate>
             <EditFormSettings>
                 <EditColumn ButtonType="ImageButton" UniqueName="EditCommandColumn1" FilterControlAltText="Filter EditCommandColumn1 column"></EditColumn>
@@ -116,5 +137,11 @@
         </MasterTableView>
     </telerik:RadGrid>
     <% } %>
+    <asp:EntityDataSource ID="uiDataSourceForCharacteristics" runat="server" ConnectionString="name=HunderassenverwaltungEntities" DefaultContainerName="HunderassenverwaltungEntities" EnableFlattening="False" EntitySetName="CharacteristicsSet"></asp:EntityDataSource>
+    <asp:EntityDataSource ID="uiDataSourceForSocialUsages" runat="server" ConnectionString="name=HunderassenverwaltungEntities" DefaultContainerName="HunderassenverwaltungEntities" EnableFlattening="False" EntitySetName="SocialUsagesSet"></asp:EntityDataSource>
+    <asp:EntityDataSource ID="uiDataSourceForWorkUsages" runat="server" ConnectionString="name=HunderassenverwaltungEntities" DefaultContainerName="HunderassenverwaltungEntities" EnableFlattening="False" EntitySetName="WorkUsagesSet"></asp:EntityDataSource>
+    <asp:EntityDataSource ID="uiDataSourceForGroups" runat="server" ConnectionString="name=HunderassenverwaltungEntities" DefaultContainerName="HunderassenverwaltungEntities" EnableFlattening="False" EntitySetName="GroupsSet"></asp:EntityDataSource>
+    <asp:ObjectDataSource ID="uiDataSourceForCountries" runat="server" SelectMethod="GetCountryList" TypeName="Hunderassenverwaltung.Managers.CountryManager"></asp:ObjectDataSource>
+    <asp:EntityDataSource ID="uiDataSourceForFurrs" runat="server" ConnectionString="name=HunderassenverwaltungEntities" DefaultContainerName="HunderassenverwaltungEntities" EnableFlattening="False" EntitySetName="FurrsSet"></asp:EntityDataSource>
     <asp:EntityDataSource runat="server" ID="uiDataSourceForDogRaces" DefaultContainerName="HunderassenverwaltungEntities" ConnectionString="name=HunderassenverwaltungEntities"></asp:EntityDataSource>
 </asp:Content>

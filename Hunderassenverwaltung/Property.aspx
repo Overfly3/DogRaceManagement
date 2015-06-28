@@ -6,12 +6,12 @@
     <telerik:RadGrid ID="uiRadGridForFurr" runat="server" DataSourceID="uiDataSourceForFurr" AllowSorting="True" Skin="MetroTouch" EnableUpdate="True" AllowAutomaticDeletes="True" AllowAutomaticInserts="True" AllowAutomaticUpdates="True" CellSpacing="-1" GridLines="Both" GroupPanelPosition="Top">
         <MasterTableView CommandItemDisplay="Top" DataKeyNames="Id" DataSourceID="uiDataSourceForFurr" AutoGenerateColumns="False">
             <CommandItemTemplate>
-                <asp:LinkButton ID="uiButtonForAddNewRecord" runat="server" CommandName="InitInsert" Visible='<%# !uiRadGridForFurr.MasterTableView.IsItemInserted %>'><img style="border:0px;vertical-align:middle;" alt="" src="Images/AddRecord.png"/>Add new record</asp:LinkButton>&nbsp;&nbsp;
+                <asp:ImageButton ID="uiButtonForAddNewRecords" ImageUrl="Images/AddRecord.png" runat="server" CommandName="InitInsert" Visible='<%# !uiRadGridForFurr.MasterTableView.IsItemInserted && User.IsInRole("Admin") %>'></asp:ImageButton>&nbsp;&nbsp;
             </CommandItemTemplate>
             <Columns>
                 <telerik:GridEditCommandColumn ButtonType="ImageButton" UniqueName="EditCommandColumn">
                 </telerik:GridEditCommandColumn>
-                <telerik:GridButtonColumn Text="Delete" CommandName="Delete" ButtonType="ImageButton" />
+                <telerik:GridButtonColumn UniqueName="DeleteButtonColumn" Text="Delete" CommandName="Delete" ButtonType="ImageButton" />
                 <telerik:GridBoundColumn Visible="false" DataField="Id" ReadOnly="True" HeaderText="Id" SortExpression="Id" UniqueName="Id" DataType="System.Int32" FilterControlAltText="Filter Id column"></telerik:GridBoundColumn>
                 <telerik:GridBoundColumn DataField="Name" HeaderText="Name" SortExpression="Name" UniqueName="Name" FilterControlAltText="Filter Name column"></telerik:GridBoundColumn>
             </Columns>
@@ -25,12 +25,12 @@
     <telerik:RadGrid ID="uiRadGridForCharacteristics" runat="server" DataSourceID="uiDataSourceForCharacteristics" AllowSorting="True" Skin="MetroTouch" EnableUpdate="True" AllowAutomaticDeletes="True" AllowAutomaticInserts="True" AllowAutomaticUpdates="True" CellSpacing="-1" GridLines="Both" GroupPanelPosition="Top">
         <MasterTableView CommandItemDisplay="Top" DataKeyNames="Id" DataSourceID="uiDataSourceForCharacteristics" AutoGenerateColumns="False">
             <CommandItemTemplate>
-                <asp:LinkButton ID="uiButtonForAddNewRecord" runat="server" CommandName="InitInsert" Visible='<%# !uiRadGridForCharacteristics.MasterTableView.IsItemInserted %>'><img style="border:0px;vertical-align:middle;" alt="" src="Images/AddRecord.png"/>Add new record</asp:LinkButton>&nbsp;&nbsp;
+                <asp:ImageButton ID="uiButtonForAddNewRecords" ImageUrl="Images/AddRecord.png" runat="server" CommandName="InitInsert" Visible='<%# !uiRadGridForCharacteristics.MasterTableView.IsItemInserted && User.IsInRole("Admin") %>'></asp:ImageButton>&nbsp;&nbsp;
             </CommandItemTemplate>
             <Columns>
                 <telerik:GridEditCommandColumn ButtonType="ImageButton" UniqueName="EditCommandColumn">
                 </telerik:GridEditCommandColumn>
-                <telerik:GridButtonColumn Text="Delete" CommandName="Delete" ButtonType="ImageButton" />
+                <telerik:GridButtonColumn Text="Delete" UniqueName="DeleteButtonColumn" CommandName="Delete" ButtonType="ImageButton" />
                 <telerik:GridBoundColumn Visible="false" DataField="Id" ReadOnly="True" HeaderText="Id" SortExpression="Id" UniqueName="Id" DataType="System.Int32" FilterControlAltText="Filter Id column"></telerik:GridBoundColumn>
                 <telerik:GridBoundColumn DataField="Name" HeaderText="Name" SortExpression="Name" UniqueName="Name" FilterControlAltText="Filter Name column"></telerik:GridBoundColumn>
             </Columns>
@@ -44,12 +44,12 @@
     <telerik:RadGrid ID="uiRadGridForGroups" runat="server" DataSourceID="uiDataSourceForGroup" AllowSorting="True" Skin="MetroTouch" EnableUpdate="True" AllowAutomaticDeletes="True" AllowAutomaticInserts="True" AllowAutomaticUpdates="True" CellSpacing="-1" GridLines="Both" GroupPanelPosition="Top">
         <MasterTableView CommandItemDisplay="Top" DataKeyNames="Id" DataSourceID="uiDataSourceForGroup" AutoGenerateColumns="False">
             <CommandItemTemplate>
-                <asp:LinkButton ID="uiButtonForAddNewRecord" runat="server" CommandName="InitInsert" Visible='<%# !uiRadGridForGroups.MasterTableView.IsItemInserted %>'><img style="border:0px;vertical-align:middle;" alt="" src="Images/AddRecord.png"/>Add new record</asp:LinkButton>&nbsp;&nbsp;
+                <asp:ImageButton ID="uiButtonForAddNewRecords" ImageUrl="Images/AddRecord.png" runat="server" CommandName="InitInsert" Visible='<%# !uiRadGridForGroups.MasterTableView.IsItemInserted && User.IsInRole("Admin") %>'></asp:ImageButton>&nbsp;&nbsp;
             </CommandItemTemplate>
             <Columns>
                 <telerik:GridEditCommandColumn ButtonType="ImageButton" UniqueName="EditCommandColumn">
                 </telerik:GridEditCommandColumn>
-                <telerik:GridButtonColumn Text="Delete" CommandName="Delete" ButtonType="ImageButton" />
+                <telerik:GridButtonColumn Text="Delete" UniqueName="DeleteButtonColumn" CommandName="Delete" ButtonType="ImageButton" />
                 <telerik:GridBoundColumn Visible="false" DataField="Id" ReadOnly="True" HeaderText="Id" SortExpression="Id" UniqueName="Id" DataType="System.Int32" FilterControlAltText="Filter Id column"></telerik:GridBoundColumn>
                 <telerik:GridBoundColumn DataField="Name" HeaderText="Name" SortExpression="Name" UniqueName="Name" FilterControlAltText="Filter Name column"></telerik:GridBoundColumn>
             </Columns>

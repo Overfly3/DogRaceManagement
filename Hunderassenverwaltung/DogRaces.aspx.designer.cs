@@ -22,6 +22,60 @@ namespace Hunderassenverwaltung {
         protected global::Telerik.Web.UI.RadGrid uiRadGridForDogRaces;
         
         /// <summary>
+        /// uiDataSourceForCharacteristics control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource uiDataSourceForCharacteristics;
+        
+        /// <summary>
+        /// uiDataSourceForSocialUsages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource uiDataSourceForSocialUsages;
+        
+        /// <summary>
+        /// uiDataSourceForWorkUsages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource uiDataSourceForWorkUsages;
+        
+        /// <summary>
+        /// uiDataSourceForGroups control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource uiDataSourceForGroups;
+        
+        /// <summary>
+        /// uiDataSourceForCountries control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource uiDataSourceForCountries;
+        
+        /// <summary>
+        /// uiDataSourceForFurrs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource uiDataSourceForFurrs;
+        
+        /// <summary>
         /// uiDataSourceForDogRaces control.
         /// </summary>
         /// <remarks>

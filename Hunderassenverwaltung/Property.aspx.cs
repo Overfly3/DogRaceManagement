@@ -14,7 +14,16 @@ namespace Hunderassenverwaltung
             if (!User.Identity.IsAuthenticated)
             {
                 Response.Redirect("~/Account/Login");
-
+            }
+            else
+            {
+                bool isAdmin = User.IsInRole("Admin");
+                uiRadGridForCharacteristics.MasterTableView.GetColumn("EditCommandColumn").Visible = isAdmin;
+                uiRadGridForCharacteristics.MasterTableView.GetColumn("DeleteButtonColumn").Visible = isAdmin;
+                uiRadGridForFurr.MasterTableView.GetColumn("EditCommandColumn").Visible = isAdmin;
+                uiRadGridForFurr.MasterTableView.GetColumn("DeleteButtonColumn").Visible = isAdmin;
+                uiRadGridForGroups.MasterTableView.GetColumn("EditCommandColumn").Visible = isAdmin;
+                uiRadGridForGroups.MasterTableView.GetColumn("DeleteButtonColumn").Visible = isAdmin;
             }
         }
     }
